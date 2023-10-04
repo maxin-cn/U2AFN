@@ -1,0 +1,5 @@
+./datasets/CelebA-HQ/train/male/000016.jpg
+./datasets/CelebA-HQ/train/male/000025.jpg
+./datasets/CelebA-HQ/train/male/000030.jpg
+./datasets/CelebA-HQ/train/male/000051.jpg
+./datasets/CelebA-HQ/train/male/000052.jpg

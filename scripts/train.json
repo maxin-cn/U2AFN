@@ -1,0 +1,99 @@
+{   
+    "PAY ATTENTION TO:": "root_folder, exp_name, is_train, dataRoot, mask_type, batch_size, networks, loss_weights, solver", 
+    "mode": "inpainting",
+    "use_cl": true,
+    "gpu_ids": [0],
+
+    "scale": 4,
+    "is_train": true,
+    "use_chop": true,
+    "rgb_range": 255,
+    "self_ensemble": false,
+    "save_image": false,
+
+    "datasets": {
+        "train": {
+            "mode": "ESWA",
+            "Begin new config":"Added by myself",
+            "dataRoot": "./datasets/CelebA-HQ/celeba-train.txt",
+            "loadSize": 256,
+            "cropSize": 256,
+            "mask_type": "fusion",
+            "mask_file":null,
+            "End new config":"",
+            
+            "dataroot_HR": "/mnt/data/paper99/DF2K/HR/x4",
+            "dataroot_LR": "/mnt/data/paper99/DF2K/LR/x4",
+            "data_type": "npy",
+            "n_workers": 8,
+            "batch_size": 32,
+            "LR_size": 40,
+            "use_flip": true,
+            "use_rot": true,
+            "noise": "."
+        },
+        "val": {
+            "mode": "ESWA",
+            "dataRoot": "./datasets/CelebA-HQ/celeba-train.txt",
+            "loadSize": 256,
+            "cropSize": 256,
+            "dataroot_HR": "./results/HR/Set5/x4",
+            "dataroot_LR": "./results/LR/LRBI/Set5/x4",
+            "data_type": "img"
+        }
+    },
+
+    "networks": {
+        "which_model": "Inpaint_v1",
+        "num_features": 96,
+        "in_channels": 4,
+        "out_channels": 4,
+        "num_steps": 4,
+        "residual_blocks": 8,
+        "act_type": "relu",
+        "norm_type": "in",
+        "num_groups": 6,
+        "compress_mode": "spade",
+        "fusion_mode": "att",
+        "use_unsup3d": false,
+        "l1_wo_uncertainty": false,
+        "dis_type": "PA"
+    },
+
+    "loss_weights":{
+        "lambda_hole": 6,
+        "lambda_valid": 1,
+        "lambda_mutal_info": 0.0001,
+        "lambda_rec": 1,
+        "lambda_wgangp": 10,
+        "lambda_adv": 0.1, 
+        "lambda_style": 120,
+        "lambda_tv": 0.1,
+        "lambda_percep": 0.05
+    },
+
+    "solver": {
+        "type": "ADAM",
+        "gan_type": "hinge", 
+        "learning_rate": 0.0001,
+        "weight_decay": 0,
+        "niter_steady": 1e4,
+        "niter": 10e4,
+        "lr_scheme": "MultiStepLR",
+        "lr_steps": [200, 400, 600, 800],
+        "lr_gamma": 0.5,
+        "loss_type": "l1",
+        "manual_seed": 2020,
+        "num_epochs": 2,
+        "skip_threshold": 5,
+        "split_batch": 1,
+        "save_ckp_step": 50,
+        "save_vis_step": 1,
+        "root_folder": "./results",
+        "exp_name": "celebahq",
+        "pretrained_step": 0,
+        "cl_weights": [1.0, 1.0, 1.0, 1.0, 1.0],
+        "uncer_weights": [1, 2, 4, 8]
+    }
+    
+}
