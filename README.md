@@ -4,7 +4,7 @@
 - Python 3 (Anaconda is recommended)
 - skimage
 - imageio
-- Pytorch (Pytorch version >=2.0.0 is recommended)
+- Pytorch (Pytorch version >= 2.0.0 is recommended)
 - tqdm 
 - pandas
 - cv2 (pip install opencv-python)
