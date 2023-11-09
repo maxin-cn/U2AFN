@@ -1,4 +1,4 @@
-# [Uncertainty-Aware Image Inpainting with Adaptive Feedback Network](https://www.wpeebles.com/DiT)
+# [Uncertainty-Aware Image Inpainting with Adaptive Feedback Network]([https://www.wpeebles.com/DiT](https://www.sciencedirect.com/science/article/pii/S0957417423016500)
 
 ## Requirements
 - Python 3 (Anaconda is recommended)
